@@ -6,9 +6,10 @@ Latitude: <%= @location.latitude %>
 
 Museums:
 
-<ul>
-    <% @museums.each do |museum| %>
-        <li><%= museum %></li>
-    <% end %>
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
-</ul>
+<% console %>

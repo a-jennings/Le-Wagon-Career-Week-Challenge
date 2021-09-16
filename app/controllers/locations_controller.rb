@@ -13,7 +13,9 @@ class LocationsController < ApplicationController
     
     def show
         @location = Location.find(params[:id])
-        @museums = find_museums(@location)
+        @markers = find_museums(@location)
+
+
     end
 
     private
@@ -29,7 +31,7 @@ class LocationsController < ApplicationController
         location_serialized = URI.open(url).read
         museum_locations = JSON.parse(location_serialized)      
         museum_locations['features'].map do |location|
-            location['place_name']
+            location['center']
         end
     end
 
