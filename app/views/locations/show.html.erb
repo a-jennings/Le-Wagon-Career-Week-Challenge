@@ -1,0 +1,14 @@
+WE MADE IT
+
+ID: <%= @location.id %>
+Longitude: <%= @location.longitude %>
+Latitude: <%= @location.latitude %>
+
+Museums:
+
+<ul>
+    <% @museums.each do |museum| %>
+        <li><%= museum %></li>
+    <% end %>
+
+</ul>
