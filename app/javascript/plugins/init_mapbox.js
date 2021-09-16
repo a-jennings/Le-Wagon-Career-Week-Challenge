@@ -10,16 +10,18 @@ const initMapbox = () => {
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v10'
     });
+    if (mapElement) {
+        // [ ... ]
+        const markers = JSON.parse(mapElement.dataset.markers);
+        console.log(markers)
+        markers.forEach((marker) => {
+            console.log(marker)
+          new mapboxgl.Marker()
+            .setLngLat([marker[0], marker[1]])
+            .addTo(map);
+        });
+      }
   }
-  if (mapElement) {
-      // [ ... ]
-      const markers = JSON.parse(mapElement.dataset.markers);
-      markers.forEach((marker) => {
-        new mapboxgl.Marker()
-          .setLngLat([ marker.lng, marker.lat ])
-          .addTo(map);
-      });
-    }
 };
 
 
